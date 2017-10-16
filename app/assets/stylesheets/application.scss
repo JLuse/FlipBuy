@@ -1,2 +1,29 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
+// @import "bootstrap-sprockets";
+
+html, body {
+  height: 100%;
+}
+
+.navbar {
+  box-shadow: 0 2px 2px -2px #999;
+}
+
+#landing {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#landing-caption {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#landing-caption h1 {
+  color: black;
+  font-weight: bold;
+
+}
