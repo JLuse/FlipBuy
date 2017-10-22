@@ -1,0 +1,28 @@
+<h1>New Listing</h1>
+<div class="row">
+   <div class="col-md-8">
+     <%= form_for @listing do |f| %>
+       <div class="form-group">
+         <%= f.label :title %>
+         <%= f.text_field :title, class: 'form-control', placeholder: "Title" %>
+       </div>
+       <div class="form-group">
+         <%= f.label :picture %>
+         <%= f.text_field :picture, class: 'form-control', placeholder: "Picture URL" %>
+       </div>
+       <div class="form-group">
+         <%= f.label :description %>
+         <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter item description, New, used, etc." %>
+       </div>
+        <div class="form-group">
+         <%= f.label :location %>
+         <%= f.text_field :location, class: 'form-control', placeholder: "Current Location" %>
+       </div>
+        <div class="form-group">
+         <%= f.label :asking_price %>
+         <%= f.text_field :asking_price, class: 'form-control', placeholder: "How much you want it for" %>
+       </div>
+       <%= f.submit "Save", class: 'btn btn-success' %>
+     <% end %>
+   </div>
+ </div>

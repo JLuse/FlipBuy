@@ -1,7 +1,10 @@
-<nav class="navbar navbar-light bg-faded navbar-fixed-top">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-fixed-top">
   <%= link_to "Logo", root_path, class: 'navbar-brand' %>
   <ul class="nav navbar-nav pull-sm-right">
     <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to 'Want Something?', new_listing_path %>
+      </li>
       <li class="nav-item">
         <%= button_to('Sign out', destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-primary') %>
       </li>
