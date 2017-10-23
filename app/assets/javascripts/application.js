@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require turbolinks
-
 //= require rails-ujs
 //= require react
 //= require react_ujs

@@ -1,1 +1,5 @@
  <h1><%= @listing.title %></h1>
+ <img src="<%= @listing.picture %>">
+ <p><%= @listing.description %></p>
+ <p><%= @listing.asking_price %></p>
+ <p>Posted by <%= @listing.user.username %></p>
