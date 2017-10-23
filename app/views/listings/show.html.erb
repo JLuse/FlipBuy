@@ -3,3 +3,7 @@
  <p><%= @listing.description %></p>
  <p><%= @listing.asking_price %></p>
  <p>Posted by <%= @listing.user.username %></p>
+  <% if policy(@listing).update? && policy(@listing).destroy? %>
+      <%= link_to "Edit post", edit_listing_path(@listing) %>
+      <%= button_to "Delete", @listing, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this lsiting?'} %>
+  <% end %>

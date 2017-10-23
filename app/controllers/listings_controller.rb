@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @listings = Listing.all
   end
@@ -25,10 +27,12 @@ class ListingsController < ApplicationController
 
   def edit
     @listing = Listing.find(params[:id])
+    authorize @listing
   end
 
   def update
     @listing = Listing.find(params[:id])
+    authorize @listing
  
     @listing.assign_attributes(listing_params)
  
@@ -43,6 +47,7 @@ class ListingsController < ApplicationController
 
   def destroy
     @listing = Listing.find(params[:id])
+    authorize @listing
  
     if @listing.destroy
       flash[:notice] = "\"#{@listing.title}\" was deleted successfully."
@@ -53,7 +58,6 @@ class ListingsController < ApplicationController
     end
   end
 
-  # cant get these to work?
   private
   def listing_params
     params.require(:listing).permit(:title, :picture, :description, :location, :asking_price)
