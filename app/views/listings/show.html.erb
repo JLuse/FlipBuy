@@ -1,9 +1,16 @@
  <h1><%= @listing.title %></h1>
- <img src="<%= @listing.picture %>">
  <p><%= @listing.description %></p>
+ <p><%= image_tag @listing.image.url(:large) %></p>
  <p><%= @listing.asking_price %></p>
  <p>Posted by <%= @listing.user.username %></p>
   <% if policy(@listing).update? && policy(@listing).destroy? %>
       <%= link_to "Edit post", edit_listing_path(@listing) %>
       <%= button_to "Delete", @listing, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this lsiting?'} %>
   <% end %>
+  <% if current_user != @listing.user %>
+    <%= link_to "Make a Bid", new_listing_bid_path(@listing) %>
+  <% end %>
+
+<section id="bids">
+  <%= render partial: "bids/bid",  collection: @bids %>
+</section>

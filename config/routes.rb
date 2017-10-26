@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  get 'landing/index'
 
-  resources :listings
+  resources :listings do
+    resources :bids, only: [:create, :new, :destroy]
+  end
+  
+  get 'landing/index'
 
   root 'landing#index'
 

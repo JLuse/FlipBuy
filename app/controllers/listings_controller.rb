@@ -7,6 +7,8 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @bid = Bid.new
+    @bids = Bid.all
   end
 
   def new
@@ -60,6 +62,6 @@ class ListingsController < ApplicationController
 
   private
   def listing_params
-    params.require(:listing).permit(:title, :picture, :description, :location, :asking_price)
+    params.require(:listing).permit(:title, :image, :description, :location, :asking_price)
   end
 end

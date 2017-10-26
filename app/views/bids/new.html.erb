@@ -1,0 +1,20 @@
+<h1>Place Bid</h1>
+<div class="row">
+   <div class="col-md-8">
+     <%= form_for [@listing, @bid], html: { multipart: true } do |f| %>
+       <div class="form-group">
+         <%= f.label :price %>
+         <%= f.text_field :price, class: 'form-control', placeholder: "Place Your Price" %>
+       </div>
+       <div class="form-group">
+         <%= f.label :image  %>
+         <%= f.file_field :image, class: 'form-control' %>
+       </div>
+       <div class="form-group">
+         <%= f.label :comment %>
+         <%= f.text_area :comment, rows: 8, class: 'form-control', placeholder: "Enter item description, New, used, etc." %>
+       </div>
+       <%= f.submit "Save", class: 'btn btn-success' %>
+     <% end %>
+   </div>
+ </div>

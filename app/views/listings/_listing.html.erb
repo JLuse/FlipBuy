@@ -3,7 +3,7 @@
     <h4 class="media-heading">
       <%= link_to listing.title, listing_path( :id => listing.id ) %>
     </h4>
-      <img src="<%= listing.picture %>">
+      <p><%= image_tag listing.image.url(:med) %></p>
       <p><%= listing.asking_price %></p>
   </div>
 </div>
