@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @listings = Listing.all
+    @listings = Listing.where(confirmed_bid_id: nil)
   end
 
   def show

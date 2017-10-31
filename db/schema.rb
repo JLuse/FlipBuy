@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025040344) do
+ActiveRecord::Schema.define(version: 20171030190633) do
 
   create_table "bids", force: :cascade do |t|
     t.decimal "price", precision: 8, scale: 2
-    t.text "comment"
     t.integer "user_id"
     t.integer "listing_id"
     t.datetime "created_at", null: false
@@ -23,6 +22,7 @@ ActiveRecord::Schema.define(version: 20171025040344) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.text "description"
     t.index ["listing_id"], name: "index_bids_on_listing_id"
     t.index ["user_id"], name: "index_bids_on_user_id"
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20171025040344) do
   create_table "listings", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "asking_price"
+    t.decimal "asking_price", precision: 8, scale: 2
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20171025040344) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.integer "comfirmed_bid_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

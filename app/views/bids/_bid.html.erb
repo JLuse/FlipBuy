@@ -1,10 +1,22 @@
 <div class="media">
   <div class="media-body">
+  <% if current_user == @listing.user %>
+    <% if bid == @listing.confirmed_bid_id %>
+     <h4>Need confirm button to lead to user profile</h4>
+     <% end %>
     <h4 class="media-heading">
       <%= bid.user.username %>
     </h4>
       <p><%= bid.price %></p>
       <p><%= image_tag bid.image.url(:med) %></p>
-      <p><%= bid.comment %></p>
+      <p><%= bid.description %></p>
+    <% else %>
+      <h4 class="media-heading">
+      <%= bid.user.username %>
+    </h4>
+      <p><%= bid.price %></p>
+      <p><%= image_tag bid.image.url(:med) %></p>
+      <p><%= bid.description %></p>
+    <% end %>
   </div>
 </div>

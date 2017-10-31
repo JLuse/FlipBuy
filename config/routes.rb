@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :listings do
+  resources :listings, except: :index do
     resources :bids, only: [:create, :new, :destroy]
   end
   
