@@ -60,6 +60,18 @@ class ListingsController < ApplicationController
     end
   end
 
+  def confirm_bid
+    @listing = Listing.find(params[:id])
+    @listing.confirmed_bid = Bid.find(params[:bid_id])
+
+    if @listing.save
+      flash[:notice] = "Bid was confirmed."
+    else
+      flash.now[:alert] = "Error saving confirmed bid. Please try again."
+    end
+    redirect_to @lisitng
+  end
+
   private
   def listing_params
     params.require(:listing).permit(:title, :image, :description, :location, :asking_price)

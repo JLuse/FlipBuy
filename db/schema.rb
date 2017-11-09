@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030190633) do
+ActiveRecord::Schema.define(version: 20171109052801) do
 
   create_table "bids", force: :cascade do |t|
     t.decimal "price", precision: 8, scale: 2
@@ -44,6 +44,20 @@ ActiveRecord::Schema.define(version: 20171030190633) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "full_name"
+    t.string "contact_number"
+    t.string "location"
+    t.integer "rating"
+    t.integer "user_id"
+    t.string "profile_pic_file_name"
+    t.string "profile_pic_content_type"
+    t.integer "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -59,6 +73,13 @@ ActiveRecord::Schema.define(version: 20171030190633) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "username"
+    t.string "contact_number"
+    t.string "location"
+    t.integer "rating"
+    t.string "profile_pic_file_name"
+    t.string "profile_pic_content_type"
+    t.integer "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
