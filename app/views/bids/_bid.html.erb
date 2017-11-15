@@ -1,7 +1,10 @@
 <div class="media">
   <div class="media-body">
-  <% if current_user == @listing.user %>
-     <%= button_to('Confirm', root_path, :method => :get, :class => 'btn btn-large btn-primary') %>
+  <% if current_user == @listing.user && @listing.confirmed_bid == nil %>
+     <%= button_to('Confirm', confirm_listing_bid_path(@listing, bid), :method => :post, data: {confirm: "Are you sure you want to Confirm this bid?"}, :class => 'btn btn-large btn-primary') %>
+  <% end %>
+  <% if bid == @listing.confirmed_bid %>
+    Confirmed Bid
   <% end %>
       <h4 class="media-heading">
       <%= link_to bid.user.username, profile_user_path(bid.user) %>

@@ -7,8 +7,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @bid = Bid.new
-    @bids = Bid.all
+    @bids = @listing.bids
   end
 
   def new
